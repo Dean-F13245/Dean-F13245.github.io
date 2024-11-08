@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillForge - Gaming Enhancement Tools</title>
+<link rel="stylesheet" href="../css/homepage.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#home" class="logo-container">
+                <img src="SkillForgeLogo.png" alt="SkillForge Logo" style="height: 50px;">
+                <span class="logo-text">SkillForge</span>
+            </a>
+            <div class="nav-links">
+                <a href="homepage.html">Home</a>
+                <a href="#features">Shop</a>
+                <a href="status.html">Status</a>
+                <a href="support.html">Support</a>
+                <a href="https://discord.gg/UQYYd7WF" target="_blank">Discord</a>
+
+            </div>
+        </nav>
+    </header>
+
+    
+    <section class="hero">
+        <img src="SkillForgeLogo.png" alt="SkillForge Logo" class="logo floating-logo" style="height: 250px;">
+        <h1>Forge Your Gaming Skills</h1>
+        <p>Advanced tools to enhance your gaming performance.</p>
+        
+        <a href="#features" class="cta-button">Power Up Your Game</a>
+    </section>
+
+    <section class="features" id="features">
+        <div class="feature-card">
+            <img src="../images/RustLogo.png" alt="Rust Logo" class="game-logo">
+            <div class="game-name">Rust</div>
+            <h3>Accounts | Software</h3>
+            <p>Advanced aim training modules and recoil control optimization specifically designed for Rust's unique shooting mechanics.</p>
+            <a href="../rust/rust.html" class="cta-button">Browse</a>
+        </div>
+
+        <div class="feature-card">
+            <img src="../images/eftlogo.jpg" alt="Escape from Tarkov Logo" class="game-logo">
+            <div class="game-name">Escape from Tarkov</div>
+            <h3>Accounts | Software</h3>
+            <p>Master weapon spray patterns with real-time feedback and personalized training routines for Tarkov's arsenal.</p>
+            <a href="#learn-more" class="cta-button">Browse</a>
+        </div>
+
+        <div class="feature-card">
+            <img src="../images/apexLogo.png" alt="Apex Legends Logo" class="game-logo">
+            <div class="game-name">Apex Legends</div>
+            <h3>Software</h3>
+            <p>Perfect your advanced movement techniques and optimize keybinds for maximum mobility in Apex Legends.</p>
+            <a href="#learn-more" class="cta-button">Browse</a>
+        </div>
+        
+    </section>
+    
+
+    <footer>
+        <p>&copy; 2024 SkillForge. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('animated-elements');
+            
+            // Create glowing dots
+            for (let i = 0; i < 20; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'glow-dot';
+                dot.style.left = `${Math.random() * 100}%`;
+                dot.style.top = `${Math.random() * 100}%`;
+                dot.style.animationDelay = `${Math.random() * 2}s`;
+                container.appendChild(dot);
+            }
+
+            // Create circuit lines
+            for (let i = 0; i < 10; i++) {
+                const line = document.createElement('div');
+                line.className = 'circuit-line';
+                line.style.width = `${Math.random() * 200 + 100}px`;
+                line.style.left = `${Math.random() * 100}%`;
+                line.style.top = `${Math.random() * 100}%`;
+                line.style.transform = `rotate(${Math.random() * 360}deg)`;
+                line.style.animationDelay = `${Math.random() * 2}s`;
+                container.appendChild(line);
+            }
+        });
+    </script>
+
+</body>
+</html>

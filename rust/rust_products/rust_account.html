@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillForge - Rust Account</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Play:wght@400;700&display=swap');
+
+        :root {
+            --background: #0a0a0f;
+            --card-bg: #13131f;
+            --primary-purple: #9333ea;
+            --purple-bright: #a855f7;
+            --purple-glow: rgba(147, 51, 234, 0.2);
+            --text-color: #ffffff;
+            --silver: #e5e7eb;
+            --silver-dark: #9ca3af;
+            --neon-purple: #b866ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-family: 'Play', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Header and Navigation */
+        header {
+            background: rgba(10, 10, 15, 0.95);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--primary-purple);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
+            background: linear-gradient(to bottom, var(--silver) 0%, var(--silver-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--purple-bright);
+        }
+
+        /* Product Specific Styles */
+        .product-container {
+            max-width: 1200px;
+            margin: 8rem auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .product-hero {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border: 1px solid var(--primary-purple);
+            margin-bottom: 2rem;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+        }
+
+        .product-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--purple-bright);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--purple-glow);
+        }
+
+        .product-description {
+            color: var(--silver-dark);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-family: 'Play', sans-serif;
+        }
+
+        .feature-tags {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .feature-tag {
+            background: rgba(147, 51, 234, 0.1);
+            border: 1px solid var(--primary-purple);
+            padding: 0.5rem 1.5rem;
+            font-family: 'Play', sans-serif;
+            color: var(--silver);
+            font-size: 0.9rem;
+            clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+            transition: all 0.3s ease;
+        }
+
+        .feature-tag:hover {
+            background: rgba(147, 51, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .features-list {
+            background: var(--card-bg);
+            border: 1px solid var(--primary-purple);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+            transition: all 0.3s ease;
+        }
+
+        .features-list:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px var(--purple-glow);
+        }
+
+        .features-list h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--purple-bright);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .features-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--silver);
+            font-family: 'Play', sans-serif;
+        }
+
+        .features-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--purple-bright);
+        }
+
+        .purchase-section {
+            background: var(--card-bg);
+            border: 1px solid var(--primary-purple);
+            padding: 2rem;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+            transition: all 0.3s ease;
+        }
+
+        .purchase-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px var(--purple-glow);
+        }
+
+        .price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            color: var(--purple-bright);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px var(--purple-glow);
+        }
+
+        .price-detail {
+            color: var(--silver-dark);
+            margin-bottom: 2rem;
+            font-family: 'Play', sans-serif;
+            font-size: 1.1rem;
+        }
+
+        .purchase-button {
+            font-family: 'Orbitron', sans-serif;
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(45deg, var(--primary-purple), var(--purple-bright));
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            border: none;
+            clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+            cursor: pointer;
+        }
+
+        .purchase-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px var(--purple-glow);
+        }
+
+        .warning-text {
+            color: var(--silver-dark);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            font-family: 'Play', sans-serif;
+        }
+
+        footer {
+            background: var(--card-bg);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 2px solid var(--primary-purple);
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .product-container {
+                margin-top: 6rem;
+                padding: 0 1rem;
+            }
+
+            .product-hero {
+                height: 300px;
+            }
+
+            .product-title {
+                font-size: 2rem;
+            }
+
+            .feature-tags {
+                justify-content: center;
+            }
+
+            .price {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="homepage.html" class="logo-container">
+                <img src="../../SkillForgeLogo.png" alt="SkillForge Logo" style="height: 50px;">
+                <span class="logo-text">SkillForge</span>
+            </a>
+            <div class="nav-links">
+                <a href="homepage.html">Home</a>
+                <a href="#shop">Shop</a>
+                <a href="status.html">Status</a>
+                <a href="support.html">Support</a>
+                <a href="https://discord.gg/UQYYd7WF">Discord</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="product-container">
+        <img src="../../images/RustAcc.png" alt="Rust Game" class="product-hero">
+        
+        <h1 class="product-title">Rust Account</h1>
+        <p class="product-description">Fresh 0 Hour Full Access Rust account with instant delivery.</p>
+
+        <div class="feature-tags">
+            <span class="feature-tag">Combat Assist</span>
+            <span class="feature-tag">Recoil Control</span>
+            <span class="feature-tag">ESP Features</span>
+        </div>
+
+        <div class="features-list">
+            <h2>Features & Benefits</h2>
+            <ul>
+                <li>Fresh account with 0 hours played</li>
+                <li>Full game access with all features unlocked</li>
+                <li>Email access provided</li>
+                <li>Instant delivery after purchase</li>
+                <li>24/7 support via Discord</li>
+                <li>Secure payment processing</li>
+            </ul>
+        </div>
+
+        <div class="purchase-section">
+            <div class="price">€15</div>
+            <div class="price-detail">per account</div>
+            <button class="purchase-button">Purchase Now</button>
+            <p class="warning-text">* Accounts are non-refundable once delivered</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 SkillForge. All rights reserved.</p>
+    </footer>
+</body>
+</html>
