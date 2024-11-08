@@ -194,6 +194,20 @@
             left: 0;
             color: var(--purple-bright);
         }
+        .feature-image {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(147, 51, 234, 0.1);
+            border: 1px solid var(--primary-purple);
+            border-radius: 4px;
+        }
+
+        .script-preview {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+        }
 
         .purchase-section {
             background: var(--card-bg);
@@ -260,6 +274,46 @@
             border-top: 2px solid var(--primary-purple);
             margin-top: 4rem;
         }
+        .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.price-option {
+    background: rgba(147, 51, 234, 0.1);
+    border: 1px solid var(--primary-purple);
+    padding: 2rem;
+    transition: all 0.3s ease;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+
+.price-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px var(--purple-glow);
+}
+
+.price {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    color: var(--purple-bright);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px var(--purple-glow);
+}
+
+.price-detail {
+    color: var(--silver-dark);
+    margin-bottom: 1.5rem;
+    font-family: 'Play', sans-serif;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
         @media (max-width: 768px) {
             nav {
@@ -302,24 +356,24 @@
             </a>
             <div class="nav-links">
                 <a href="../../index.html">Home</a>
-                <a href="/index.html#shop">Shop</a>
-                <a href="/main_pages/status.html">Status</a>
-                <a href="/main_pages/support.html">Support</a>
+                <a href="../../index.html#features">Shop</a>
+                <a href="../../main_pages/status.html">Status</a>
+                <a href="../../main_pages/support.html">Support</a>
                 <a href="https://discord.gg/UQYYd7WF" target="_blank">Discord</a>
             </div>
         </nav>
     </header>
 
     <div class="product-container">
-        <img src="../../images/rust_script_2024_001.png" alt="Rust Game" class="product-hero">
+        <img src="../../images/RustAcc.png" alt="Rust Game" class="product-hero">
         
         <h1 class="product-title">Rust Script</h1>
         <p class="product-description">Fully up to date and UNDETECTED Rust Recoil Script.</p>
 
         <div class="feature-tags">
-            <span class="feature-tag">Combat Assist</span>
             <span class="feature-tag">Recoil Control</span>
-            <span class="feature-tag">ESP Features</span>
+            <span class="feature-tag">Crouch Detection</span>
+            <span class="feature-tag">Supports Attachments</span>
         </div>
 
         <div class="features-list">
@@ -355,15 +409,33 @@
                 <li>24/7 support via Discord</li>
                 <li>Secure payment processing</li>
             </ul>
+            <div class="feature-image">
+                <img src="../../images/rust_script_2024_001.png" alt="Rust Script Interface" class="script-preview">
+            </div>
         </div>
 
         <div class="purchase-section">
-            <div class="price">€15</div>
-            <div class="price-detail">per account</div>
-            <button class="purchase-button">Purchase Now</button>
-            <p class="warning-text">* Accounts are non-refundable once delivered</p>
+            <div class="pricing-grid">
+                <div class="price-option">
+                    <div class="price">€2</div>
+                    <div class="price-detail">1 Day Access</div>
+                    <button class="purchase-button">Purchase Now</button>
+                </div>
+                
+                <div class="price-option">
+                    <div class="price">€8</div>
+                    <div class="price-detail">7 Days Access</div>
+                    <button class="purchase-button">Purchase Now</button>
+                </div>
+                
+                <div class="price-option">
+                    <div class="price">€19</div>
+                    <div class="price-detail">30 Days Access</div>
+                    <button class="purchase-button">Purchase Now</button>
+                </div>
+            </div>
+            <p class="warning-text">* Products are non-refundable once delivered</p>
         </div>
-    </div>
 
     <footer>
         <p>&copy; 2024 SkillForge. All rights reserved.</p>
