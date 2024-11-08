@@ -1,0 +1,251 @@
+
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Play:wght@400;700&display=swap');
+
+        :root {
+            --background: #0a0a0f;
+            --card-bg: #13131f;
+            --primary-purple: #9333ea;
+            --purple-bright: #a855f7;
+            --purple-glow: rgba(147, 51, 234, 0.2);
+            --text-color: #ffffff;
+            --silver: #e5e7eb;
+            --silver-dark: #9ca3af;
+            --neon-purple: #b866ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-family: 'Play', sans-serif;
+            font-weight: 700;
+        }
+
+        header {
+            background: rgba(10, 10, 15, 0.95);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--primary-purple);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
+            background: linear-gradient(to bottom, var(--silver) 0%, var(--silver-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--purple-bright);
+        }
+
+        .hero {
+            padding: 12rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: radial-gradient(circle at center, rgba(147, 51, 234, 0.1), transparent 70%);
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+            text-shadow: 0 0 10px var(--purple-bright);
+        }
+
+        .hero p {
+            font-family: 'Play', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--silver-dark);
+        }
+
+        .features {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border: 1px solid var(--primary-purple);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px var(--purple-glow);
+        }
+
+        .game-logo {
+            width: calc(100% + 4rem);
+            height: 300px;
+            margin: -2rem -2rem 1rem -2rem;
+            
+            border: none;
+            border-bottom: 1px solid var(--primary-purple);
+            display: block;
+        }
+
+        .product-name {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            color: var(--purple-bright);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+            justify-content: center;
+        }
+
+        .tag {
+            background: rgba(147, 51, 234, 0.1);
+            border: 1px solid var(--primary-purple);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: var(--silver);
+        }
+
+        .product-price {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            color: var(--purple-bright);
+            font-size: 1.4rem;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .feature-card p {
+            font-family: 'Play', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: var(--silver-dark);
+        }
+
+        .cta-button {
+            font-family: 'Orbitron', sans-serif;
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(45deg, var(--primary-purple), var(--purple-bright));
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: none;
+            clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px var(--purple-glow);
+        }
+
+        footer {
+            background: var(--card-bg);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 2px solid var(--primary-purple);
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    
